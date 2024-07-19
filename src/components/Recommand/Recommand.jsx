@@ -1,17 +1,16 @@
 import React from 'react'
-import './Hot.css'
+import './Recomand.css'
+import RecommandCard from './RecommandCard'
 import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
-import HotCard from './HotCard'
-
-const Hot = () => {
+const Recommand = () => {
   const settings = {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 2,
+    slidesToShow: 1,
+    slidesToScroll: 1,
     vertical: false,
     verticalSwiping: true,
     arrows: false,
@@ -39,28 +38,19 @@ const Hot = () => {
       rating: 4.7,
       reviews: 3,
     },
-    {
-      id: 4,
-      name: '[2개] 꽃보다오징어 130g',
-      price: '10,900원',
-      rating: 4.8,
-      reviews: 999,
-    },
+
     // 필요하다면 더 많은 제품을 추가할 수 있습니다.
   ]
-
   return (
-    <div className="Hot-container">
-      <div className="Hot-title">
-        지금사면 <span className="highlight">번쩍할인</span>
-      </div>
-      <Slider {...settings}>
+    <div className="Recommand-container">
+      <div className="Recommand-title">오늘의 타임요정 고객 한정 특가</div>
+      <div className="RecommandCard-img">
         {products.map(product => (
-          <HotCard key={product.id} product={product} />
+          <RecommandCard key={product.id} product={product} />
         ))}
-      </Slider>
+      </div>
     </div>
   )
 }
 
-export default Hot
+export default Recommand

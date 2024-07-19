@@ -4,6 +4,8 @@ import Banner from './Banner'
 import SearchBar from './SearchBar'
 import CategoryList from './CategoryList'
 import './Home.css'
+import First from './FirstOrder/First'
+import Recommand from './Recommand/Recommand'
 function Home() {
   return (
     <div className="Container">
@@ -13,6 +15,10 @@ function Home() {
       <CategoryList />
       <div className="separator"></div>
       <Hot />
+      <div className="separator"></div>
+      <First />
+      <div className="separator1"></div>
+      <Recommand />
     </div>
   )
 }

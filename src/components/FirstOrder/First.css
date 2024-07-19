@@ -1,42 +1,41 @@
-.Hot-container {
+.First-container {
   display: flex;
   flex-direction: column;
   gap: 20px;
   padding-left: 25px;
   overflow-x: hidden;
-  height: 290px;
+  height: 450px;
 }
 
-.Hot-title {
+.First-title {
   font-size: 20px;
   font-weight: 700;
+  display: flex;
+  padding-left: 0px;
 }
-.highlight {
-  color: red;
-}
-.HotCard {
+.FirstCard {
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
   justify-content: center;
 }
-.HotCard-img {
-  width: 100px;
-  height: 100px;
+.FirstCard-img {
+  width: 260px;
+  height: 260px;
   border-radius: 15px;
   background-color: rgb(233, 233, 233);
 }
-.HotCard-name {
+.FirstCard-name {
   font-size: 15px;
-  width: 100px;
+  width: 180px;
   margin: 0;
   margin-top: 7px;
 }
-.HotCard-slide {
+.FirstCard-slide {
   display: flex;
   flex-direction: row;
 }
-.Hot-container {
+.First-container {
   max-width: 330px; /* 또는 원하는 너비 */
 }
 
@@ -51,18 +50,18 @@
 .slick-slide {
   margin-top: 15px;
   height: auto !important;
-  margin-bottom: 15px;
+  margin-bottom: 0px;
 }
 
-.HotCard-price {
+.FirstCard-price {
   margin: 0;
   margin-top: 10px;
 }
-.HotCard-rating {
+.FirstCard-rating {
   display: flex;
   gap: 2px;
 }
-.HotCard-sale {
+.FirstCard-sale {
   width: 20px;
   height: 20px;
   position: absolute;
