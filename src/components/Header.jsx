@@ -11,8 +11,13 @@ function Header() {
         <span>마감요정</span>
       </a>
       <nav className="nav">
+        <a href="owner">
+          <span className="owner">사장님용</span>
+        </a>
         <a href="bag">
-          <FaShoppingCart color="black" />
+          <div className="bag">
+            <FaShoppingCart color="black" />
+          </div>
         </a>
       </nav>
     </header>

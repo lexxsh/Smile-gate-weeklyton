@@ -6,6 +6,7 @@ import './App.css'
 import Detail from './components/Detail'
 import Bag from './components/Bag'
 import Searchpage from './components/searchpage'
+import Owner from './components/Owner/Owner'
 function App() {
   return (
     <>
@@ -13,9 +14,10 @@ function App() {
         <Header />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/Detail" element={<Detail />} />
-          <Route path="/serch" element={<Searchpage />} />
+          <Route path="/detail/:id" element={<Detail />} />
+          <Route path="/search" element={<Searchpage />} />
           <Route path="/bag" element={<Bag />} />
+          <Route path="/owner" element={<Owner />} />
         </Routes>
       </div>
     </>

@@ -1,6 +1,15 @@
 .banner {
-  width: 80%;
+  width: 300px;
   height: 150px;
-  background: rgb(219, 219, 219);
+  background: rgb(255, 255, 255);
   border-radius: 15px;
+  overflow: hidden;
+  padding-bottom: 10px;
+}
+.banner .img1 {
+  width: auto; /* 원본 이미지 비율 유지 */
+  max-height: 100%; /* 최대 높이 제한 */
+  display: block; /* 블록 레벨 요소로 설정 */
+  margin: auto; /* 좌우 중앙 정렬 */
+  border-radius: 20px;
 }
