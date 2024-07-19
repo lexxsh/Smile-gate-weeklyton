@@ -8,19 +8,15 @@ function Header() {
         <FaFire
           style={{ color: '#6E56EF', fontSize: '24px', marginRight: '10px' }}
         />
-        <span>타임 캡슐</span>
+        <span>마감요정</span>
       </div>
       <nav className="nav">
-        <a href="#home">Home</a>
-        <a href="#explore">Explore</a>
-        <a href="#activity">Activity</a>
-        <a href="#community">Community</a>
-        <a href="#page">Page</a>
-        <a href="#contact">Contact</a>
+        <a href="#home">H</a>
+        <a href="#explore">E</a>
+        <div className="search-wallet">
+          <FaSearch color="black" />
+        </div>
       </nav>
-      <div className="search-wallet">
-        <FaSearch color="white" />
-      </div>
     </header>
   )
 }

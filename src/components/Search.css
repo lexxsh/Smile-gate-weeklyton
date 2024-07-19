@@ -1,0 +1,17 @@
+.Search {
+  border: none;
+  width: 260px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgb(233, 233, 233);
+  padding-left: 40px;
+}
+.Search-img {
+  position: absolute;
+  top: 37.3%;
+  left: 48px;
+  cursor: pointer;
+}
+.Search::placeholder {
+  font-family: Pretendard;
+}
