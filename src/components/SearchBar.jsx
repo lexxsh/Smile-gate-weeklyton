@@ -30,7 +30,7 @@ const SearchBar = () => {
       <input
         type="text"
         placeholder=" 상품을 검색해보세요!"
-        className="Search"
+        className="Search1"
         value={searchTerm}
         onChange={e => setSearchTerm(e.target.value)}
         onKeyPress={handleKeyPress}

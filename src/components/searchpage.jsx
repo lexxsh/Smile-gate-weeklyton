@@ -5,15 +5,15 @@ import { useLocation } from 'react-router-dom'
 const Searchpage = () => {
   const location = useLocation()
   // list 배열에 접근
-  const productList = location.state?.searchResults?.result || []
+  const productDtoList = location.state?.searchResults?.result || []
 
   // 디버그 로그로 productList를 출력
-  console.log('Product List:', productList)
+  console.log('Product List:', productDtoList)
 
   return (
     <div className="Hot-container">
-      {productList.length > 0 ? (
-        productList.map(product => (
+      {productDtoList.length > 0 ? (
+        productDtoist.map(product => (
           <HotCard key={product.id} product={product} />
         ))
       ) : (

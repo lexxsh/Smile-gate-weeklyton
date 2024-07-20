@@ -17,7 +17,7 @@ const Hot = () => {
         console.log('API에서 받아온 상품 데이터:', response.data)
 
         // 데이터를 상태에 저장
-        setProducts(response.data.result.productList)
+        setProducts(response.data.result.productDtoList)
       } catch (err) {
         console.error('상품 조회 실패:', err)
       }

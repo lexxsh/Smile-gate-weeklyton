@@ -13,7 +13,7 @@ const Detail = () => {
     const fetchProductDetail = async () => {
       try {
         const response = await api.consumer.getAllProducts()
-        const productDetails = response.data.result.productList
+        const productDetails = response.data.result.productDtoList
         const specificProduct = productDetails.find(
           product => product.id.toString() === id
         )
@@ -37,7 +37,13 @@ const Detail = () => {
         consumerId: consumerId,
       }
 
-      await api.consumer.purchase(purchaseData)
+      const purchaseRequestList = [purchaseData] // purchaseData를 포함하는 배열 생성
+
+      const payload = {
+        purchaseRequestList: purchaseRequestList,
+      } // 최종 데이터를 포함하는 객체 생성
+
+      await api.consumer.purchase(payload) // 구매 API 호출
       toast.success('장바구니에 들어갔어요!', {
         autoClose: 3000, // 3초 후 자동으로 닫힘. 밀리초 단위입니다.
         position: 'top-center', // 화면의 30% 아래로 조정

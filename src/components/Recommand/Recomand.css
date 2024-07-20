@@ -97,3 +97,7 @@
   position: absolute;
   margin: 0s;
 }
+.RecommandCard-link {
+  text-decoration: none;
+  color: black;
+}

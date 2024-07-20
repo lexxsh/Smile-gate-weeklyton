@@ -1,16 +1,34 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './Bag.css'
+import api from '../api'
+
 const Bag = () => {
   const [quantity, setQuantity] = useState(5) // Default quantity
   const unitPrice = 5330 // price per item
-
+  const consumerId = '1' // 설정된 consumerId
+  useEffect(() => {
+    handleOrder() // 컴포넌트가 마운트될 때 handleOrder 함수 호출
+  }, [])
   const increaseQuantity = () => {
     setQuantity(prev => prev + 1)
   }
 
   const decreaseQuantity = () => {
-    setQuantity(prev => (prev > 1 ? prev - 1 : 1)) // Prevent quantity less than 1
+    setQuantity(prev => (prev > 1 ? prev - 1 : 1)) // 수량이 1 미만이 되지 않도록 함
   }
+
+  const handleOrder = async () => {
+    try {
+      const purchaseData = {
+        consumerId: consumerId,
+      }
+      const response = await api.consumer.purchaseInfo(purchaseData)
+      console.log('Order response:', response.data) // API 호출
+    } catch (error) {
+      console.error('Error placing order:', error)
+    }
+  }
+
   return (
     <div className="product-detail">
       <div className="section1">
@@ -41,7 +59,7 @@ const Bag = () => {
         <span>{quantity * unitPrice}원 더 많이 담으면 배달팁 무료</span>
       </div>
       <div className="total">
-        <button className="button2">
+        <button className="button2" onClick={handleOrder}>
           예약배달 주문하기
           <span>{quantity * unitPrice}원</span>
         </button>

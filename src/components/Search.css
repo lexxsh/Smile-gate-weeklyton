@@ -1,4 +1,4 @@
-.Search {
+.Search1 {
   border: none;
   width: 260px;
   height: 40px;
@@ -9,7 +9,7 @@
 .Search-img {
   position: absolute;
   top: 38.5%;
-  left: 41px;
+  left: 310px;
   cursor: pointer;
 }
 .Search::placeholder {
