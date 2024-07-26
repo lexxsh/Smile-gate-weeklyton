@@ -10,11 +10,15 @@ const Slider2 = () => {
   return (
     <div className="Slider2">
       <div className="Slider2text">
-        <div className="Slider2text1">AI 00일기</div>
-        <div className="Slider2text2">오늘 하루를</div>
-        <div className="Slider2text2">추천해줘</div>
-        <div className="Slider2text3">일상의 순간들을 기록하면,</div>
-        <div className="Slider2text4">AI가 다양한 내용을 추천해드려요.</div>
+        <div className="Slider2text1">타임캡슐</div>
+        <div className="Slider2text2">감정을 기록하고, </div>
+        <div className="Slider2text2">감동을 더하다.</div>
+        <div className="Slider2text3">
+          오늘의 일기가, 내일의 취향을 만듭니다.
+        </div>
+        <div className="Slider2text4">
+          일기와 추천이 만나 새로운 경험을 선사합니다.
+        </div>
       </div>
       <div className="Slider2button" onClick={handleClick}>
         오늘부터 기록하기

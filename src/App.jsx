@@ -9,6 +9,7 @@ import Loading from './components/Loading/Loading'
 import Result from './components/Result/Result'
 import Result1 from './components/Result/Result1'
 import Result2 from './components/Result/Result2'
+import { YouTubeProvider } from './components/Result/YoutubeContext1'
 import './App.css'
 
 const pageVariants = {
@@ -36,124 +37,128 @@ function App() {
   const location = useLocation()
 
   return (
-    <div className="iphone-container">
-      <AnimatePresence>
-        <Routes location={location} key={location.key}>
-          <Route
-            path="/"
-            element={
-              <motion.div
-                initial="initial"
-                animate="enter"
-                exit="exit"
-                variants={pageVariants}
-                transition={pageTransition}
-              >
-                <Home />
-              </motion.div>
-            }
-          />
-          <Route
-            path="/calendar"
-            element={
-              <motion.div
-                initial="initial"
-                animate="enter"
-                exit="exit"
-                variants={pageVariants}
-                transition={pageTransition}
-              >
-                <Calender />
-              </motion.div>
-            }
-          />
-          <Route
-            path="/emotion"
-            element={
-              <motion.div
-                initial="initial"
-                animate="enter"
-                exit="exit"
-                variants={pageVariants}
-                transition={pageTransition}
-              >
-                <Emotion />
-              </motion.div>
-            }
-          />
-          <Route
-            path="/write"
-            element={
-              <motion.div
-                initial="initial"
-                animate="enter"
-                exit="exit"
-                variants={pageVariants}
-                transition={pageTransition}
-              >
-                <Write />
-              </motion.div>
-            }
-          />
-          <Route
-            path="/loading"
-            element={
-              <motion.div
-                initial="initial"
-                animate="enter"
-                exit="exit"
-                variants={pageVariants}
-                transition={pageTransition}
-              >
-                <Loading />
-              </motion.div>
-            }
-          />
-          <Route
-            path="/result"
-            element={
-              <motion.div
-                initial="initial"
-                animate="enter"
-                exit="exit"
-                variants={pageVariants}
-                transition={pageTransition}
-              >
-                <Result />
-              </motion.div>
-            }
-          />
-          <Route
-            path="/result1"
-            element={
-              <motion.div
-                initial="initial"
-                animate="enter"
-                exit="exit"
-                variants={pageVariants}
-                transition={pageTransition}
-              >
-                <Result1 />
-              </motion.div>
-            }
-          />
-          <Route
-            path="/result2"
-            element={
-              <motion.div
-                initial="initial"
-                animate="enter"
-                exit="exit"
-                variants={pageVariants}
-                transition={pageTransition}
-              >
-                <Result2 />
-              </motion.div>
-            }
-          />
-        </Routes>
-      </AnimatePresence>
-    </div>
+    <YouTubeProvider>
+      {' '}
+      {/* YouTubeProvider로 애플리케이션 감싸기 */}
+      <div className="iphone-container">
+        <AnimatePresence>
+          <Routes location={location} key={location.key}>
+            <Route
+              path="/"
+              element={
+                <motion.div
+                  initial="initial"
+                  animate="enter"
+                  exit="exit"
+                  variants={pageVariants}
+                  transition={pageTransition}
+                >
+                  <Home />
+                </motion.div>
+              }
+            />
+            <Route
+              path="/calendar"
+              element={
+                <motion.div
+                  initial="initial"
+                  animate="enter"
+                  exit="exit"
+                  variants={pageVariants}
+                  transition={pageTransition}
+                >
+                  <Calender />
+                </motion.div>
+              }
+            />
+            <Route
+              path="/emotion"
+              element={
+                <motion.div
+                  initial="initial"
+                  animate="enter"
+                  exit="exit"
+                  variants={pageVariants}
+                  transition={pageTransition}
+                >
+                  <Emotion />
+                </motion.div>
+              }
+            />
+            <Route
+              path="/write"
+              element={
+                <motion.div
+                  initial="initial"
+                  animate="enter"
+                  exit="exit"
+                  variants={pageVariants}
+                  transition={pageTransition}
+                >
+                  <Write />
+                </motion.div>
+              }
+            />
+            <Route
+              path="/loading"
+              element={
+                <motion.div
+                  initial="initial"
+                  animate="enter"
+                  exit="exit"
+                  variants={pageVariants}
+                  transition={pageTransition}
+                >
+                  <Loading />
+                </motion.div>
+              }
+            />
+            <Route
+              path="/result"
+              element={
+                <motion.div
+                  initial="initial"
+                  animate="enter"
+                  exit="exit"
+                  variants={pageVariants}
+                  transition={pageTransition}
+                >
+                  <Result />
+                </motion.div>
+              }
+            />
+            <Route
+              path="/result1"
+              element={
+                <motion.div
+                  initial="initial"
+                  animate="enter"
+                  exit="exit"
+                  variants={pageVariants}
+                  transition={pageTransition}
+                >
+                  <Result1 />
+                </motion.div>
+              }
+            />
+            <Route
+              path="/result2"
+              element={
+                <motion.div
+                  initial="initial"
+                  animate="enter"
+                  exit="exit"
+                  variants={pageVariants}
+                  transition={pageTransition}
+                >
+                  <Result2 />
+                </motion.div>
+              }
+            />
+          </Routes>
+        </AnimatePresence>
+      </div>
+    </YouTubeProvider>
   )
 }
 

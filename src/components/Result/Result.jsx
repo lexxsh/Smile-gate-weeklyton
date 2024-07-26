@@ -1,28 +1,17 @@
+// Result.jsx
 import React, { useEffect, useState } from 'react'
-import YouTube from 'react-youtube'
-import './Result.css'
 import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
+import './Result.css'
 
 const Result = () => {
-  const [bgColor, setBgColor] = useState('#ddcfb9') // 초기 배경색 설정
-  const [videoId] = useState('fqimqhjpLjU') // 비디오 ID 상태
+  const [bgColor, setBgColor] = useState('#ddcfb9')
+  const [videoId] = useState('fTwVEu6itik') // 비디오 ID 설정
+  const [videoTitle, setVideoTitle] = useState('')
   const navigate = useNavigate()
 
   const handleClick = () => {
     navigate('/result1')
-  }
-
-  const opts = {
-    height: '0', // 비디오가 보이지 않도록 설정
-    width: '0',
-    playerVars: {
-      autoplay: 1, // 자동 재생
-      controls: 0, // 컨트롤 숨기기
-      modestbranding: 1, // 브랜드 로고 숨기기
-      rel: 0, // 관련 비디오 숨기기
-      iv_load_policy: 3, // 비디오 광고 숨기기
-      cc_load_policy: 0, // 자막 숨기기
-    },
   }
 
   useEffect(() => {
@@ -44,20 +33,27 @@ const Result = () => {
       return colors[randomIndex]
     }
 
-    // 배경색 설정
     setBgColor(getRandomColor())
-  }, []) // 빈 배열로 설정하여 컴포넌트 마운트 시 한 번만 실행
+  }, [])
 
-  const onReady = event => {
-    // 비디오가 로드되면 자동 재생
-    event.target.playVideo()
-  }
+  useEffect(() => {
+    const fetchVideoTitle = async () => {
+      const apiKey = 'AIzaSyDOD2iNEKiXF1B3t1_GmwlYQBQkrqP18sA' // YouTube Data API 키
+      const url = `https://www.googleapis.com/youtube/v3/videos?part=snippet&id=${videoId}&key=${apiKey}`
 
-  const onStateChange = event => {
-    // 상태 변화에 따라 동작 정의 가능
-    // 예: 상태를 추적하거나 추가적인 작업을 수행할 수 있음
-    console.log('Player state changed:', event.data)
-  }
+      try {
+        const response = await axios.get(url)
+        const title = response.data.items[0].snippet.title
+        setVideoTitle(title)
+      } catch (error) {
+        console.error('Error fetching video title:', error)
+      }
+    }
+
+    fetchVideoTitle()
+  }, [videoId])
+
+  const videoUrl = `https://www.youtube.com/watch?v=${videoId}`
 
   return (
     <div className="Result-Container" style={{ backgroundColor: bgColor }}>
@@ -70,13 +66,14 @@ const Result = () => {
       <div className="Result-Title">음악 추천🎵</div>
 
       <div className="Result-YouTubeContainer">
-        <YouTube
-          videoId={videoId} // 비디오 ID 설정
-          opts={opts}
-          onReady={onReady}
-          onStateChange={onStateChange}
-        />
-        <div className="YouTube-Content">추천 음악</div>
+        <a
+          href={videoUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="YouTube-Link"
+        >
+          {videoTitle || '비디오 제목을 가져오는 중...'}
+        </a>
       </div>
 
       <div className="Result-button" onClick={handleClick}>

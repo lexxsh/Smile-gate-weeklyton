@@ -4,7 +4,7 @@ const Slider1 = () => {
   return (
     <div className="Slider1">
       <div className="Slider1text">
-        <div className="Slider1text1">AI 00일기</div>
+        <div className="Slider1text1">AI 추천일기</div>
         <div className="Slider1text2">오늘 하루를</div>
         <div className="Slider1text2">추천해줘</div>
         <div className="Slider1text3">일상의 순간들을 기록하면,</div>
