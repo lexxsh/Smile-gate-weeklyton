@@ -1,0 +1,52 @@
+.Container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.Title {
+  background-color: transparent;
+}
+/* src/Slider/Slider.css */
+.slick-dots {
+  position: absolute;
+  top: 790px; /* 원하는 위치로 조정 (예: 10px 위쪽) */
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+.slick-dots li {
+  margin: 0 5px; /* 점 사이의 간격 조정 */
+}
+
+.slick-dots button {
+  border: none;
+  background: transparent;
+  padding: 0;
+  font-size: 0;
+  cursor: pointer; /* 커서를 버튼처럼 보이게 설정 */
+}
+
+.slick-dots .slick-active button::before {
+  color: #737dfe; /* 활성화된 점의 색상 */
+}
+
+.slick-dots button::before {
+  font-family: 'slick';
+  font-size: 10px; /* 점 크기 조정 */
+  line-height: 1;
+  color: #ffcac9; /* 비활성화된 점의 색상 */
+  text-align: center;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  content: '•'; /* 점 모양 설정 */
+}
+
+.slick-dots button:hover::before {
+  color: #737dfe; /* Hover 상태에서 점 색상 */
+}

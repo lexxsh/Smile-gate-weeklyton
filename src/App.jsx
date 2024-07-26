@@ -1,23 +1,16 @@
 import React from 'react'
 import { Routes, Route } from 'react-router-dom'
-import Header from './components/Header'
-import Home from './components/Home'
+import Home from './components/Home/Home'
 import './App.css'
-import Detail from './components/Detail'
-import Bag from './components/Bag'
-import Searchpage from './components/searchpage'
-import Owner from './components/Owner/Owner'
+import Calender from './components/Calender/Calender'
+
 function App() {
   return (
     <>
-      <div className="App">
-        <Header />
+      <div className="iphone-container">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/detail/:id" element={<Detail />} />
-          <Route path="/search" element={<Searchpage />} />
-          <Route path="/bag" element={<Bag />} />
-          <Route path="/owner" element={<Owner />} />
+          <Route path="/calendar" element={<Calender />} />
         </Routes>
       </div>
     </>
