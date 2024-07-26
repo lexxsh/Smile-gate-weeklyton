@@ -8,45 +8,42 @@
   background-color: transparent;
 }
 /* src/Slider/Slider.css */
-.slick-dots {
-  position: absolute;
-  top: 790px; /* 원하는 위치로 조정 (예: 10px 위쪽) */
-  left: 50%;
-  transform: translateX(-50%);
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  list-style: none;
+.custom-slick-dots {
+  position: absolute !important;
+  top: 20px !important; /* 아래쪽으로부터의 거리 조정 */
+  left: 50% !important; /* 슬라이더 중앙에 위치하도록 설정 */
+  transform: translateX(-50%) !important; /* 중앙 정렬 */
+  display: flex !important;
+  justify-content: center !important;
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  flex-direction: row !important;
 }
 
-.slick-dots li {
+.custom-slick-dots li {
   margin: 0 5px; /* 점 사이의 간격 조정 */
 }
 
-.slick-dots button {
+.custom-slick-dots button {
   border: none;
   background: transparent;
   padding: 0;
-  font-size: 0;
+  font-size: 0; /* 기본 폰트 크기 제거 */
   cursor: pointer; /* 커서를 버튼처럼 보이게 설정 */
 }
 
-.slick-dots .slick-active button::before {
-  color: #737dfe; /* 활성화된 점의 색상 */
+.custom-slick-dots .slick-active button::before {
+  color: #000000; /* 활성화된 점의 색상 */
 }
 
-.slick-dots button::before {
-  font-family: 'slick';
-  font-size: 10px; /* 점 크기 조정 */
+.custom-slick-dots button::before {
+  font-family: 'slick'; /* slick 아이콘 폰트 사용 */
+  font-size: 12px; /* 점 크기 조정 */
   line-height: 1;
-  color: #ffcac9; /* 비활성화된 점의 색상 */
+  color: #ffffff; /* 비활성화된 점의 색상 */
   text-align: center;
   opacity: 1;
-  transition: opacity 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s ease; /* 색상과 크기 변환 효과 */
   content: '•'; /* 점 모양 설정 */
-}
-
-.slick-dots button:hover::before {
-  color: #737dfe; /* Hover 상태에서 점 색상 */
 }
