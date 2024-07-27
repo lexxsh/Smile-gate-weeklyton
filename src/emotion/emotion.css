@@ -38,8 +38,9 @@
   height: 100px; /* 아이콘의 높이 */
   border-radius: 30px;
   cursor: pointer;
-  background-size: cover;
-  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat; /* 배경 이미지 반복을 없애기 */
+  background-position: center; /* 배경 이미지 중앙 정렬 */
   transition: box-shadow 0.3s ease, color 0.3s ease;
   margin-bottom: 50px;
 }
@@ -49,7 +50,7 @@
   position: absolute;
   width: 100%;
   text-align: center;
-  bottom: -25px; /* 이미지 아래에 텍스트 위치 조정 */
+  bottom: -15px; /* 이미지 아래에 텍스트 위치 조정 */
   font-size: 16px;
   font-weight: 600;
   color: #a9a9a9; /* 기본 텍스트 색상 */
@@ -70,15 +71,15 @@
 }
 
 .excited {
-  background-image: url('sad-removebg-preview.png');
+  background-image: url('hurt.png');
 }
 
 .love {
-  background-image: url('haooy.png');
+  background-image: url('yaho.png');
 }
 
 .grateful {
-  background-image: url('hurt-removebg-preview.png');
+  background-image: url('sad.png');
 }
 
 .relieved {

@@ -1,6 +1,6 @@
 .calendar {
-  background-color: #f3eee9;
-  color: #272727;
+  background-color: #222;
+  color: #888;
   padding: 20px;
   height: 844px;
   display: flex;
@@ -17,13 +17,13 @@
 }
 
 .month {
-  color: #000000;
+  color: #fff;
   font-size: 25px;
   font-weight: bold;
 }
 
 .menu-icon {
-  color: #000000;
+  color: #fff;
   font-size: 30px;
 }
 
@@ -62,7 +62,7 @@
   justify-content: center;
   align-items: center;
   font-size: 16px;
-  margin-bottom: 15px;
+  margin-bottom: 10px;
   margin-top: 10px;
 }
 
@@ -71,7 +71,7 @@
 }
 
 .day.selected {
-  background-color: hsla(0, 0%, 83%, 0.4);
+  background-color: #9b9b9b;
   color: #fff;
   border-radius: 5px;
 }
@@ -79,13 +79,13 @@
 .event-indicator {
   width: 4px;
   height: 4px;
-  background-color: #00d9ff;
+  background-color: #3ce642;
   border-radius: 50%;
   margin-bottom: 2px;
 }
 .info-box {
-  background-color: #faf6eb;
-  color: #000000;
+  background-color: #333;
+  color: #fff;
   border-radius: 10px;
   padding: 15px;
   margin-top: 20px;
@@ -95,21 +95,21 @@
 
 .info-box h3 {
   margin-top: 0;
-  color: #000000;
+  color: #4caf50;
 }
 .button-container {
   display: flex;
   gap: 20px;
   align-items: center;
-  margin-top: 25px;
+  margin-top: 20px;
   position: absolute;
   top: 750px;
   left: 4%;
 }
 
 .diary-button {
-  background-color: #ffffff;
-  color: rgb(0, 0, 0);
+  background-color: #4caf50;
+  color: white;
   border: none;
   padding: 15px 20px;
   border-radius: 40px;
@@ -124,8 +124,8 @@
   position: relative;
   width: 50px;
   height: 50px;
-  background-color: #ffffff;
-  color: #000000;
+  background-color: #4caf50;
+  color: #fff;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -136,11 +136,11 @@
 .diary-button:hover,
 .add-button:hover,
 .background-button:hover {
-  background-color: #888888;
+  background-color: #3b7e3e;
 }
 .background-button {
-  background-color: #ffffff;
-  color: rgb(0, 0, 0);
+  background-color: #4caf50;
+  color: white;
   border: none;
   padding: 15px 15px;
   border-radius: 40px;

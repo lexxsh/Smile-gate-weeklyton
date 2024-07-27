@@ -4,11 +4,11 @@ import { useNavigate } from 'react-router-dom'
 import api from '../../api'
 
 const emotionImages = {
-  기쁨: '/happy.png',
-  슬픔: '/sad-removebg-preview.png',
+  행복: '/happy.png',
+  슬픔: '/sad.png',
   화남: '/angry.png',
-  상처: '/hurt-removebg-preview.png',
-  행복: '/haooy.png',
+  상처: '/hurt.png',
+  사랑: '/yaho.png',
   당황: '/um.png',
 }
 
@@ -173,7 +173,7 @@ const Calendar = () => {
 
   const handleClick2 = () => {
     if (selectedDate) {
-      const url = `https://main--lofibackground.netlify.app/?selectedDate=${encodeURIComponent(
+      const url = `http://localhost:3005/?selectedDate=${encodeURIComponent(
         `202407${selectedDate.toString().padStart(2, '0')}`
       )}`
       window.open(url, '_blank', 'noopener,noreferrer')
