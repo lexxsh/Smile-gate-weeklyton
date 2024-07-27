@@ -1,6 +1,6 @@
 .calendar {
-  background-color: #222;
-  color: #888;
+  background-color: #f3eee9;
+  color: #272727;
   padding: 20px;
   height: 844px;
   display: flex;
@@ -17,13 +17,13 @@
 }
 
 .month {
-  color: #fff;
+  color: #000000;
   font-size: 25px;
   font-weight: bold;
 }
 
 .menu-icon {
-  color: #fff;
+  color: #000000;
   font-size: 30px;
 }
 
@@ -62,7 +62,7 @@
   justify-content: center;
   align-items: center;
   font-size: 16px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   margin-top: 10px;
 }
 
@@ -71,7 +71,7 @@
 }
 
 .day.selected {
-  background-color: #9b9b9b;
+  background-color: hsla(0, 0%, 83%, 0.4);
   color: #fff;
   border-radius: 5px;
 }
@@ -79,13 +79,13 @@
 .event-indicator {
   width: 4px;
   height: 4px;
-  background-color: #3ce642;
+  background-color: #00d9ff;
   border-radius: 50%;
   margin-bottom: 2px;
 }
 .info-box {
-  background-color: #333;
-  color: #fff;
+  background-color: #faf6eb;
+  color: #000000;
   border-radius: 10px;
   padding: 15px;
   margin-top: 20px;
@@ -95,21 +95,21 @@
 
 .info-box h3 {
   margin-top: 0;
-  color: #4caf50;
+  color: #000000;
 }
 .button-container {
   display: flex;
   gap: 20px;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 25px;
   position: absolute;
   top: 750px;
   left: 4%;
 }
 
 .diary-button {
-  background-color: #4caf50;
-  color: white;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
   border: none;
   padding: 15px 20px;
   border-radius: 40px;
@@ -124,8 +124,8 @@
   position: relative;
   width: 50px;
   height: 50px;
-  background-color: #4caf50;
-  color: #fff;
+  background-color: #ffffff;
+  color: #000000;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -136,11 +136,11 @@
 .diary-button:hover,
 .add-button:hover,
 .background-button:hover {
-  background-color: #3b7e3e;
+  background-color: #888888;
 }
 .background-button {
-  background-color: #4caf50;
-  color: white;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
   border: none;
   padding: 15px 15px;
   border-radius: 40px;
@@ -150,4 +150,18 @@
   position: relative;
   font-weight: 600;
   font-family: Pretendard;
+}
+.emotion-circle {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+}
+
+.emotion-circle img {
+  width: 300%;
+  height: 200%;
+  object-fit: contain;
 }

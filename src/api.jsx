@@ -12,15 +12,22 @@ const apiClient = axios.create({
 const api = {
   getDiary: async date => {
     try {
-      // 날짜를 쿼리 파라미터로 전달
       const response = await apiClient.get('/diary/get', {
-        params: {
-          date: date.toString(), // 쿼리 파라미터로 날짜 전달
-        },
+        params: { date }, // 쿼리 파라미터로 날짜 전달
       })
       return response.data
     } catch (error) {
       console.error('Error fetching diary:', error)
+      throw error
+    }
+  },
+
+  getAllDiaries: async () => {
+    try {
+      const response = await apiClient.get('/diary/get/all') // 전체 다이어리 데이터 요청
+      return response.data
+    } catch (error) {
+      console.error('Error fetching all diaries:', error)
       throw error
     }
   },

@@ -7,6 +7,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 10px;
 }
 
 .emotion-date {
@@ -33,89 +34,68 @@
 
 .emotion-icon {
   position: relative;
-  padding: 20px;
-  margin: 10px;
-  border-radius: 10px;
+  width: 100px; /* 아이콘의 너비 */
+  height: 100px; /* 아이콘의 높이 */
+  border-radius: 30px;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2em;
+  background-size: cover;
+  background-position: center;
   transition: box-shadow 0.3s ease, color 0.3s ease;
-  margin-top: 70px;
-  color: #a9a9a9;
+  margin-bottom: 50px;
 }
 
-.emotion-icon::before {
-  content: '';
+.emotion-icon::after {
+  content: attr(data-label); /* 감정 이름을 표시 */
   position: absolute;
-  top: -40px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  transition: all 0.3s ease;
+  width: 100%;
+  text-align: center;
+  bottom: -25px; /* 이미지 아래에 텍스트 위치 조정 */
+  font-size: 16px;
+  font-weight: 600;
+  color: #a9a9a9; /* 기본 텍스트 색상 */
+  transition: color 0.3s ease;
+  margin-bottom: -20px;
 }
 
-.emotion-icon.happy::before {
-  background-color: #f7c6c7; /* 행복의 색상 */
-}
-
-.emotion-icon.excited::before {
-  background-color: #f7e4b9; /* 기대의 색상 */
-}
-
-.emotion-icon.love::before {
-  background-color: #f7b9d3; /* 사랑의 색상 */
-}
-
-.emotion-icon.grateful::before {
-  background-color: #e6f7c6; /* 감사의 색상 */
-}
-
-.emotion-icon.relieved::before {
-  background-color: #c6e2f7; /* 안도의 색상 */
-}
-
-.emotion-icon.sad::before {
-  background-color: #c6c6c6; /* 슬픔의 색상 */
-}
-
-.emotion-icon.selected::before {
-  box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.5); /* 기본 그림자 */
-}
-
-.emotion-icon.selected.happy::before {
-  box-shadow: 0 0 10px 4px rgba(247, 198, 199, 0.7); /* 행복의 색상 그림자 */
-}
-
-.emotion-icon.selected.excited::before {
-  box-shadow: 0 0 10px 4px rgba(247, 228, 185, 0.7); /* 기대의 색상 그림자 */
-}
-
-.emotion-icon.selected.love::before {
-  box-shadow: 0 0 10px 4px rgba(247, 185, 211, 0.7); /* 사랑의 색상 그림자 */
-}
-
-.emotion-icon.selected.grateful::before {
-  box-shadow: 0 0 10px 4px rgba(230, 247, 198, 0.7); /* 감사의 색상 그림자 */
-}
-
-.emotion-icon.selected.relieved::before {
-  box-shadow: 0 0 10px 4px rgba(198, 226, 247, 0.7); /* 안도의 색상 그림자 */
-}
-
-.emotion-icon.selected.sad::before {
-  box-shadow: 0 0 10px 4px rgba(198, 198, 198, 0.7); /* 슬픔의 색상 그림자 */
-}
 .emotion-icon.selected {
-  color: white;
+  box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.5); /* 선택된 상태에서 그림자 효과 */
 }
+
+.emotion-icon.selected::after {
+  color: #ffeb3b; /* 선택된 상태에서 글씨 색상 변경 */
+}
+
+.happy {
+  background-image: url('happy.png');
+}
+
+.excited {
+  background-image: url('sad-removebg-preview.png');
+}
+
+.love {
+  background-image: url('haooy.png');
+}
+
+.grateful {
+  background-image: url('hurt-removebg-preview.png');
+}
+
+.relieved {
+  background-image: url('angry.png');
+}
+
+.sad {
+  background-image: url('um.png');
+}
+
 .emotion-next {
   background-color: #4caf50;
   padding: 10px 100px;
   border-radius: 10px;
-  margin-top: 250px;
+  margin-top: 200px; /* 적절한 위치로 조정 */
   cursor: pointer;
+  color: white;
+  text-align: center;
+  font-size: 20px;
 }

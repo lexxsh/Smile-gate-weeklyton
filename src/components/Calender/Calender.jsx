@@ -3,17 +3,51 @@ import './Calendar.css'
 import { useNavigate } from 'react-router-dom'
 import api from '../../api'
 
+const emotionImages = {
+  기쁨: '/happy.png',
+  슬픔: '/sad-removebg-preview.png',
+  화남: '/angry.png',
+  상처: '/hurt-removebg-preview.png',
+  행복: '/haooy.png',
+  당황: '/um.png',
+}
+
 const Calendar = () => {
   const [selectedDate, setSelectedDate] = useState(null)
   const [diaryData, setDiaryData] = useState(null)
+  const [isLoading, setIsLoading] = useState(false)
+  const [error, setError] = useState(null)
   const navigate = useNavigate()
+  const [allDiaries, setAllDiaries] = useState([])
 
-  const emotions = {
-    3: '😊',
-    7: '😢',
-    15: '😎',
-    22: '🥳',
+  const getFormattedDate = date => {
+    const year = date.getFullYear()
+    const month = date.getMonth() + 1
+    const day = date.getDate()
+    return `${year}${month.toString().padStart(2, '0')}${day
+      .toString()
+      .padStart(2, '0')}`
   }
+
+  useEffect(() => {
+    const today = new Date()
+    const formattedDate = getFormattedDate(today)
+    setSelectedDate(parseInt(formattedDate.slice(6), 10))
+
+    const fetchDiaryData = async () => {
+      setIsLoading(true)
+      setError(null)
+      try {
+        const data = await api.getDiary(formattedDate)
+        setDiaryData(data)
+      } catch (error) {
+        setError(error)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+    fetchDiaryData()
+  }, [])
 
   const renderHeader = () => (
     <div className="header">
@@ -35,13 +69,22 @@ const Calendar = () => {
   const renderDays = () => {
     const days = []
     for (let i = 1; i <= 31; i++) {
+      const dateStr = `202407${i.toString().padStart(2, '0')}`
+      const diaryEntry = allDiaries[dateStr]
+      const emotionImage = diaryEntry ? emotionImages[diaryEntry[0]] : null
+
       days.push(
         <div
           key={i}
           className={`day ${selectedDate === i ? 'selected' : ''}`}
-          onClick={() => setSelectedDate(i)}
+          onClick={() => {
+            setSelectedDate(i)
+            setDiaryData(null)
+          }}
         >
-          <div className="emotion-circle">{emotions[i] || ''}</div>
+          <div className="emotion-circle">
+            {emotionImage && <img src={emotionImage} alt={diaryEntry[1]} />}
+          </div>
           <span className="date-number">{i}</span>
         </div>
       )
@@ -50,30 +93,70 @@ const Calendar = () => {
   }
 
   const renderInfoBox = () => {
+    if (isLoading) {
+      return <div className="info-box">데이터를 가져오는 중...</div>
+    }
+    if (error) {
+      return (
+        <div className="info-box">
+          일기가 존재하지 않습니다ㅠㅠ 작성해주세요
+        </div>
+      )
+    }
     if (!selectedDate) {
       return <div className="info-box">날짜를 선택하세요.</div>
     }
     if (diaryData) {
       return (
         <div className="info-box">
-          <h3>{selectedDate}일의 일정</h3>
+          <h3>{selectedDate}일의 일기</h3>
           <p>{diaryData.data.content || '일기 내용이 없습니다.'}</p>
         </div>
       )
     }
-    return <div className="info-box">데이터를 가져오는 중...</div>
+    return <div className="info-box">일기 데이터를 가져오는 중...</div>
   }
+
+  useEffect(() => {
+    const fetchAllDiaries = async () => {
+      setIsLoading(true)
+      setError(null)
+      try {
+        const data = await api.getAllDiaries()
+        const processedData = Object.entries(data.data).reduce(
+          (acc, [date, value]) => {
+            const emotion = value[0]
+            const content = value[1]
+            acc[date] = [emotion, content] // 감정, 내용
+            return acc
+          },
+          {}
+        )
+        setAllDiaries(processedData)
+        console.log(processedData)
+      } catch (error) {
+        setError(error)
+      } finally {
+        setIsLoading(false)
+      }
+    }
+    fetchAllDiaries()
+  }, [])
 
   useEffect(() => {
     if (selectedDate) {
       const fetchDiaryData = async () => {
+        setIsLoading(true)
+        setError(null)
         try {
-          // 날짜 형식: 20240701 (YYYYMMDD)
           const dateStr = `202407${selectedDate.toString().padStart(2, '0')}`
           const data = await api.getDiary(dateStr)
           setDiaryData(data)
+          console.log(data)
         } catch (error) {
-          console.error('Error fetching diary data:', error)
+          setError(error)
+        } finally {
+          setIsLoading(false)
         }
       }
       fetchDiaryData()
@@ -102,10 +185,17 @@ const Calendar = () => {
   const handleClick3 = async () => {
     if (selectedDate) {
       try {
-        // 날짜 형식: 20240701 (YYYYMMDD)
         const dateStr = `202407${selectedDate.toString().padStart(2, '0')}`
         const data = await api.getDiary(dateStr)
-        navigate('/result', { state: { selectedDate, diaryData: data } })
+        navigate('/result', {
+          state: {
+            selectedDate: selectedDate,
+            emotionLabel: data.feeling,
+            responseData: data,
+            diaryData: data,
+          },
+        })
+        console.log(data)
       } catch (error) {
         alert('일기 데이터를 가져오는 데 실패했습니다.')
       }

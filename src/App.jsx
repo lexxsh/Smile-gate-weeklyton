@@ -11,6 +11,7 @@ import Result1 from './components/Result/Result1'
 import Result2 from './components/Result/Result2'
 import { YouTubeProvider } from './components/Result/YoutubeContext1'
 import './App.css'
+import Result3 from './components/Result/Result3'
 
 const pageVariants = {
   initial: {
@@ -152,6 +153,20 @@ function App() {
                   transition={pageTransition}
                 >
                   <Result2 />
+                </motion.div>
+              }
+            />
+            <Route
+              path="/result3"
+              element={
+                <motion.div
+                  initial="initial"
+                  animate="enter"
+                  exit="exit"
+                  variants={pageVariants}
+                  transition={pageTransition}
+                >
+                  <Result3 />
                 </motion.div>
               }
             />

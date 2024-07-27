@@ -17,7 +17,7 @@ const sliderSettings = {
   dots: true,
 }
 
-const Result2 = () => {
+const Result3 = () => {
   const [bgColor, setBgColor] = useState('#ddcfb9') // Initial background color
   const location = useLocation() // Use location to get state
   const navigate = useNavigate()
@@ -33,7 +33,15 @@ const Result2 = () => {
 
   // Handle button click
   const handleClick = () => {
-    navigate('/calendar')
+    navigate('/result2', {
+      state: {
+        selectedDate,
+        emotionLabel,
+        recommendedBook,
+        recommendedMovie,
+        recommendedMusic,
+      },
+    })
   }
 
   useEffect(() => {
@@ -62,39 +70,37 @@ const Result2 = () => {
   return (
     <div className="Result-Container" style={{ backgroundColor: bgColor }}>
       <div className="Result-Text">2024년 07월 {selectedDate || '미정'}일</div>
-      <div className="Result-Title">책 추천 📚</div>
-      <Slider {...sliderSettings} className="Result-Slider3">
-        {recommendedBook && recommendedBook.length > 0 ? (
-          recommendedBook.map((book, index) => (
-            <div key={index} className="Result-Slide3">
-              <div className="Slide-ImageContainer">
-                <img
-                  src={book._source.url}
-                  className="Slide-Image"
-                  alt={book._source.title}
-                />
+      <div className="Result-Title">음악 추천 🎧</div>
+      <Slider {...sliderSettings} className="Result-Slider">
+        {recommendedMusic && recommendedMusic.length > 0 ? (
+          recommendedMusic.map((music, index) => (
+            <div key={index} className="Result-Slide">
+              <div className="Slide-VideoContainer">
+                <iframe
+                  src={music.youtube_embed}
+                  className="Slide-Video"
+                  title={music.title}
+                  frameBorder="0"
+                  allowFullScreen
+                ></iframe>
               </div>
-              <div className="Slide-TextContainer3">
-                <h3>{book._source.title}</h3>
-                <p className="Slide-Description">
-                  {book._source.text.length > 150
-                    ? book._source.text.slice(0, 130) + '...'
-                    : book._source.text}
-                </p>
+              <div className="Slide-TextContainer">
+                <h3>{music.title}</h3>
+                <p></p>
               </div>
             </div>
           ))
         ) : (
           <div className="Result-Slide">
-            <h3>추천할 책이 없습니다.</h3>
+            <h3>추천할 음악이 없습니다.</h3>
           </div>
         )}
       </Slider>
-      <div className="Result-button3" onClick={handleClick}>
-        오늘 일기 끝!
+      <div className="Result-button2" onClick={handleClick}>
+        다음 내용 보기
       </div>
     </div>
   )
 }
 
-export default Result2
+export default Result3

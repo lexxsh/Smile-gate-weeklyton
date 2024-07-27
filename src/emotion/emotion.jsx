@@ -11,16 +11,17 @@ const Emotion = () => {
 
   const emotions = [
     { id: 'happy', label: '행복' },
-    { id: 'excited', label: '기대' },
+    { id: 'excited', label: '상처' },
     { id: 'love', label: '사랑' },
-    { id: 'grateful', label: '감사' },
-    { id: 'relieved', label: '안도' },
-    { id: 'sad', label: '슬픔' },
+    { id: 'grateful', label: '슬픔' },
+    { id: 'relieved', label: '화남' },
+    { id: 'sad', label: '당황' },
   ]
 
   const handleEmotionClick = emotion => {
     setSelectedEmotion(emotion)
   }
+
   const handleClick = () => {
     if (!selectedEmotion) {
       alert('감정을 선택해 주세요.')
@@ -31,6 +32,7 @@ const Emotion = () => {
       state: { selectedDate, selectedEmotion },
     })
   }
+
   return (
     <div>
       <div className="emotion-container">
@@ -39,7 +41,7 @@ const Emotion = () => {
             ? `7월 ${selectedDate}일의 감정`
             : '날짜를 선택해 주세요'}
         </div>
-        <div className="emotion-explain">오늘 하루중 느낀감정을</div>
+        <div className="emotion-explain">오늘 하루중 느낀 감정을</div>
         <div className="emotion-explain">선택해주세요.</div>
         <div className="emotion-grid">
           {emotions.map(emotion => (
@@ -49,9 +51,8 @@ const Emotion = () => {
                 selectedEmotion?.id === emotion.id ? 'selected' : ''
               }`}
               onClick={() => handleEmotionClick(emotion)}
-            >
-              {emotion.label}
-            </div>
+              data-label={emotion.label}
+            />
           ))}
         </div>
         <div className="emotion-next" onClick={handleClick}>
